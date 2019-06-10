@@ -1,13 +1,25 @@
 #include <iostream>
+#include <string>
 
 int n1, n2, result, var;
-int calculate(int n1, int n2, int result, int var);
 
+int calculate(int n1, int n2, int result, int var);
 using namespace std;
 
+
 int main() {
+    string comment;
+
     result = calculate(n1, n2, result, var);
+
     cout << "Result for yout operation: " << result << endl;
+    cout << "If you are like please write comment" << endl;
+
+    cin.ignore();
+    getline(cin, comment);
+
+    (comment.length()) ? cout << "Thanks" << endl : cout << "Yanks go home" << endl;
+
     return 0;
 }
 
