@@ -39,7 +39,13 @@ int calculate(int n1, int n2, int result, int var) {
             result = n1 * n2;
             break;
         case 4:
-            result = n1 / n2;
+            try {
+                if (!n2) throw 1;
+                result = n1 / n2;
+            } catch (int e) {
+                cout << e + "- divide by 0, try again" << endl;
+                return calculate(n1, n2, result, var);
+            }
             break;
         default:
             cout << "You choose variant if i don't know\nDo you want recalculate your operation? Please write your answer(+ or -)" << endl;
