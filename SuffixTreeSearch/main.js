@@ -2,7 +2,7 @@ window.onload = () => {
 	let input = document.querySelector('#input');
 	let list = document.querySelectorAll('.ul li');
 	let t = new GeneralizedSuffixTree();
-                    
+
 	for (let i = 0; i < list.length; i++) {
 		t.put(list[i].innerText, i)
 	}
@@ -24,9 +24,8 @@ window.onload = () => {
 			});
 		}
 		let t1 = performance.now();
-		console.log("tree ", t1 - t0);
 
-		t0 = performance.now();
+		let t01 = performance.now();
 		value
 			? list.forEach(elem => {
 					elem.innerText.search(value) == -1
@@ -36,7 +35,10 @@ window.onload = () => {
 			: list.forEach(elem => {
 					elem.classList.remove('hide');
 			  });
-		t1 = performance.now();
-		console.log(t1 - t0);
+		let t11 = performance.now();
+		console.log({
+			tree: t1 - t0,
+			search: t11 - t01
+		});
 	};
 };
